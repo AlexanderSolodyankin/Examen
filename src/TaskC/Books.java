@@ -2,20 +2,20 @@ package TaskC;
 
 import java.util.Random;
 
-public class Books {
-    private int id;
-    private String autor;
-    private int yearIssue;
-    private String name;
-    private String name1;
-    private String name2;
-    private static int countBooks;
+public class Books { // Класс книги
+    private int id; // айди номер книги
+    private String autor; // Автор книги
+    private int yearIssue; // Год выпуска киниги
+    private String name; // Название книги
+    private String name1; // Данный параметр нужен был дял меня для того чтобы сортировать книги по отделам
+    private String name2;  // Данный параметр нужен был дял меня для того чтобы сортировать книги по отделам
+    private static int countBooks; // Счетчик книг и для инкремитации IDномера
 
 
-    public Books() {
-        randomBooks();
-        countBooks++;
-        this.id = countBooks;
+    public Books() { // конструктор для создания книги из пустого
+        randomBooks(); // метод позволяющий создовать книгу со всеми свойстваи сллучайным образом
+        countBooks++; // счатчик количества оброщений к классу
+        this.id = countBooks; // Передача номера созданной книге
     }
 
     public String getName1() {
@@ -72,7 +72,8 @@ public class Books {
                 "Индефикатор книги: %s\n",name,autor,yearIssue,id);
     }
 
-   public void randomBooks(){
+   public void randomBooks(){ // генератор случайных параметров для книги
+        // Был создан потому что было лен ьпостоянно при проверке пичатать все это в книги
         Random ran = new Random();
         String[][] autors = new String[2][5];
         autors[0][0] = "Зигмунд ";      autors[1][0] = "Фрейд";

@@ -3,10 +3,14 @@ package TaskC;
 import java.util.Arrays;
 
 public class Library {
+    /** Библиотека принимает книги она же и распределяет книги по отделам
+     * Следовательно все книги хоть и распределены по отделам все же хронятся они в библиотеке
+     * таким оьбразом я расуждал при созжании данного класса
+     */
     private Books[] bookLibrery;
     private Departament fiction;
     private Departament legalDepartamentl;
-    private TexhnicDepartament texhnicDepartament;
+    private TexhnicDepartament texhnicDepartament; // Наследник класа департамент добовляющий функцию "Компьютер"
 
 
     public Library(Books[] books){
@@ -14,7 +18,7 @@ public class Library {
         this.fiction = new Departament("Художественной литературы");
         this.legalDepartamentl = new Departament("Юредической литературы");
         this.texhnicDepartament = new TexhnicDepartament("Технической литературы");
-        for(int i = 0; i < this.bookLibrery.length;i++){
+        for(int i = 0; i < this.bookLibrery.length;i++){ // Цикл  в котором распределяются книги по отделам
             if(this.bookLibrery[i].getName1().equals("Роман ")){
                 this.fiction.setBooks(this.bookLibrery[i]);
             }
@@ -59,13 +63,14 @@ public class Library {
     public void setBookLibrery(Books[] bookLibrery) {
         this.bookLibrery = bookLibrery;
     }
-    public void setOneBook(Books book){
+    public void setOneBook(Books book){ // метод позволяющий добавлять книку в общий массив книг если это нужно
         this.bookLibrery = Arrays.copyOf(this.bookLibrery,this.bookLibrery.length + 1);
         this.bookLibrery[this.bookLibrery.length - 1] = book;
     }
 
     @Override
-    public String toString(){
+    public String toString(){ // вывод информацции отделов
+
         return String.format("Библеотека.\n" +
                 "Первый отдел в Библеотеке: %s\n" +
                 "Второй отдел в Библеотеке: %s \n" +

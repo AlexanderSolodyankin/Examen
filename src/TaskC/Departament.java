@@ -9,7 +9,7 @@ public class Departament {
     private Books[] booksDepartament;
 
     public Departament(String name){
-        this.booksDepartament = new Books[0];
+        this.booksDepartament = new Books[0]; // задал нулевой массив для исключение ошибки "Null" формата
         this.name = name;
     }
 
@@ -21,7 +21,7 @@ public class Departament {
         this.name = name;
     }
 
-    void setBooks(Books books){
+    void setBooks(Books books){ // реалезована возможность добовлять элемент в массив
         this.booksDepartament = Arrays.copyOf(this.booksDepartament,this.booksDepartament.length + 1);
         this.booksDepartament[this.booksDepartament.length - 1] = books;
     }
@@ -33,14 +33,15 @@ public class Departament {
     }
 
     @Override
-    public String toString(){
+    public String toString(){ // вывод информации иотдела в моем случае это только имя
+        // и количество книг в нем хронящихся
         String outInform = "";
         outInform = String.format("Отдел %s.\n" +
                 "Количество хронящихся книг: %s\n", this.name, countBooks());
         return outInform;
     }
 
-    public String outAllInformationsTheDeportament(){
+    public String outAllInformationsTheDeportament(){ // вывод полной нформации а также всех хронящихся книг в отделе
         String allInformation = String.format("Отдел %s.\n" +
                 "Количество хронящихся книг: %s\n", name, (booksDepartament.length));
         for (Books allBooks: booksDepartament) {
@@ -49,7 +50,7 @@ public class Departament {
         return allInformation;
     }
 
-    public void searchBookByAutor(String autor){
+    public void searchBookByAutor(String autor){ // метод позволяющий найти книгу по автору в отделе
         String outSearch = "";
         for (int i = 0; i < this.booksDepartament.length; i++){
             if(autor.equals(booksDepartament[i].getAutor())){
